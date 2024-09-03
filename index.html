@@ -40,9 +40,23 @@
 
     <script>
         document.getElementById('completeRegistrationButton').addEventListener('click', function() {
-            // Trigger the CompleteRegistration event
-            ttq.track('CompleteRegistration');
-            alert('Complete Registration event sent to TikTok Pixel!');
+            // Trigger the CompleteRegistration event with additional fake data
+            ttq.track('CompleteRegistration', {
+                email: "testuser@example.com",
+                phone_number: "1234567890",
+                name: {
+                    first_name: "John",
+                    last_name: "Doe"
+                },
+                address: {
+                    city: "Testville",
+                    state: "TS",
+                    country: "US",
+                    zip: "12345"
+                },
+                registration_method: "Website"
+            });
+            alert('Complete Registration event sent to TikTok Pixel with fake data!');
         });
     </script>
 </body>
